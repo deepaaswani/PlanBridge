@@ -6,6 +6,9 @@
 *.tsbuildinfo
 /next-env.d.ts
 
+# Local design references
+/design-references/
+
 # Local configuration and deployment metadata
 .env*
 !.env.example

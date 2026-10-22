@@ -1,47 +1,344 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(/fonts/playfair-0.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(/fonts/playfair-1.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: italic;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url(/fonts/jakarta-0.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url(/fonts/jakarta-1.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(/fonts/icons-0.woff2) format("woff2");
+}
+
+@theme {
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --color-on-secondary-container: #73603a;
+  --color-on-error: #ffffff;
+  --color-background: #fff7fa;
+  --color-surface-tint: #7a526d;
+  --color-on-background: #1f1a20;
+  --color-outline-variant: #d2c3c9;
+  --color-surface-container-highest: #ebdfe7;
+  --color-surface-container: #f6ebf3;
+  --color-inverse-primary: #ebb8d7;
+  --color-on-primary: #ffffff;
+  --color-on-secondary-fixed: #261900;
+  --color-outline: #80747a;
+  --color-on-tertiary: #ffffff;
+  --color-on-primary-fixed: #2f1027;
+  --color-tertiary-fixed: #d2ebb8;
+  --color-on-primary-container: #c495b2;
+  --color-surface-variant: #ebdfe7;
+  --color-on-tertiary-fixed: #0f2002;
+  --color-error-container: #ffdad6;
+  --color-secondary-fixed: #fadfb0;
+  --color-secondary: #6f5c36;
+  --color-primary-fixed: #ffd7ee;
+  --color-on-tertiary-container: #93aa7b;
+  --color-tertiary: #162806;
+  --color-on-surface: #1f1a20;
+  --color-error: #ba1a1a;
+  --color-on-surface-variant: #4e4449;
+  --color-primary-container: #512d46;
+  --color-secondary-fixed-dim: #dcc396;
+  --color-tertiary-container: #2b3e1a;
+  --color-primary-fixed-dim: #ebb8d7;
+  --color-surface: #fff7fa;
+  --color-on-secondary-fixed-variant: #554421;
+  --color-inverse-surface: #352e35;
+  --color-secondary-container: #f7dcad;
+  --color-tertiary-fixed-dim: #b6ce9d;
+  --color-on-tertiary-fixed-variant: #394c27;
+  --color-primary: #391830;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-bright: #fff7fa;
+  --color-on-error-container: #93000a;
+  --color-surface-container-high: #f1e5ed;
+  --color-inverse-on-surface: #f9edf6;
+  --color-on-secondary: #ffffff;
+  --color-on-primary-fixed-variant: #603b54;
+  --color-surface-dim: #e2d7df;
+  --color-surface-container-low: #fcf0f9;
+  --color-ivory: #faf7f2;
+  --color-plum: #512d46;
+  --color-muted-rose: #ead9df;
+  --color-gold: #c6ae82;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-margin-mobile: 1rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-md: 1rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-margin: 2.5rem;
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+  --font-display-lg: "Playfair Display", serif;
+  --font-body-lg: "Plus Jakarta Sans", sans-serif;
+  --font-label-md: "Plus Jakarta Sans", sans-serif;
+  --font-body-md: "Plus Jakarta Sans", sans-serif;
+  --font-headline-sm: "Playfair Display", serif;
+  --font-display-lg-mobile: "Playfair Display", serif;
+  --font-title-md: "Plus Jakarta Sans", sans-serif;
+  --font-body-sm: "Plus Jakarta Sans", sans-serif;
+  --font-label-lg: "Plus Jakarta Sans", sans-serif;
+  --font-headline-lg-mobile: "Playfair Display", serif;
+  --font-headline-lg: "Playfair Display", serif;
+  --font-headline-md: "Playfair Display", serif;
+  --font-label-caps: "Plus Jakarta Sans", sans-serif;
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 56px;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 600;
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 26px;
+  --text-body-lg--font-weight: 400;
+  --text-label-md: 12px;
+  --text-label-md--line-height: 16px;
+  --text-label-md--letter-spacing: 0.02em;
+  --text-label-md--font-weight: 600;
+  --text-body-md: 14px;
+  --text-body-md--line-height: 22px;
+  --text-body-md--font-weight: 400;
+  --text-headline-sm: 20px;
+  --text-headline-sm--line-height: 28px;
+  --text-headline-sm--font-weight: 500;
+  --text-display-lg-mobile: 36px;
+  --text-display-lg-mobile--line-height: 44px;
+  --text-display-lg-mobile--letter-spacing: -0.01em;
+  --text-display-lg-mobile--font-weight: 600;
+  --text-title-md: 18px;
+  --text-title-md--line-height: 26px;
+  --text-title-md--font-weight: 600;
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 18px;
+  --text-body-sm--font-weight: 400;
+  --text-label-lg: 14px;
+  --text-label-lg--line-height: 20px;
+  --text-label-lg--letter-spacing: 0.01em;
+  --text-label-lg--font-weight: 600;
+  --text-headline-lg-mobile: 26px;
+  --text-headline-lg-mobile--line-height: 34px;
+  --text-headline-lg-mobile--font-weight: 600;
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-headline-lg--font-weight: 600;
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 32px;
+  --text-headline-md--font-weight: 500;
+  --text-label-caps: 11px;
+  --text-label-caps--line-height: 16px;
+  --text-label-caps--letter-spacing: 0.06em;
+  --text-label-caps--font-weight: 700;
+}
+
 :root {
   color-scheme: light;
-  --background: #faf7f2;
-  --surface: #ffffff;
-  --foreground: #302331;
-  --muted: #695c66;
-  --primary: #542b4d;
-  --rose: #ead9df;
-  --accent: #9a763b;
-  --border: #ddd2d8;
-  --focus: #542b4d;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-surface: var(--surface);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-primary: var(--primary);
-  --color-rose: var(--rose);
-  --color-accent: var(--accent);
-  --color-border: var(--border);
-  --color-focus: var(--focus);
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-heading: Georgia, "Times New Roman", serif;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
-
 body {
   margin: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  line-height: 1.6;
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-body-md);
+  font-size: 14px;
+  line-height: 22px;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-
-::selection {
-  background: var(--rose);
-  color: var(--foreground);
-}
-
 :focus-visible {
-  outline: 3px solid var(--focus);
+  outline: 3px solid var(--color-primary-container);
   outline-offset: 4px;
+}
+::selection {
+  background: var(--color-primary-fixed);
+  color: var(--color-primary);
+}
+@layer components {
+  .material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+  }
+}
+.text-on-surface-variant {
+  color: #3c343c;
+}
+.homepage-mobile .text-on-surface-variant {
+  color: var(--color-on-surface-variant);
+}
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 20px;
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-160%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+summary {
+  cursor: pointer;
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+details[open] > summary .faq-chevron {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+.faq-answer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-surface-container-high);
+}
+.homepage-mobile .faq-answer {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.homepage-desktop {
+  display: block;
+}
+.homepage-mobile {
+  display: none;
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.preview-control {
+  cursor: default;
+}
+.notice-dialog {
+  width: min(440px, calc(100% - 32px));
+  margin: auto;
+  padding: 32px;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 20px;
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  box-shadow: 0 24px 80px #39183026;
+}
+.notice-dialog::backdrop {
+  background: #1f1a2066;
+  backdrop-filter: blur(4px);
+}
+.notice-dialog h2 {
+  font: 600 28px/1.3 var(--font-headline-lg);
+  margin-bottom: 14px;
+}
+.notice-dialog p {
+  margin-bottom: 24px;
+}
+.notice-dialog button {
+  padding: 10px 24px;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: white;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+  .homepage-desktop {
+    display: none;
+  }
+  .homepage-mobile {
+    display: block;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .homepage-mobile main {
+    min-height: 100dvh;
+  }
+  .homepage-mobile [id] {
+    scroll-margin-top: 80px;
+  }
+  .homepage-mobile .min-w-0 {
+    min-width: 0;
+  }
+  .homepage-mobile .preview-control {
+    text-align: center;
+  }
+  .homepage-mobile header > div {
+    gap: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
