@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef, type ReactNode } from "react";
+import Link from "next/link";
 
 type AvailabilityKind = "signup" | "login" | "information";
 
@@ -15,6 +16,13 @@ export function AvailabilityLink({
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const titleId = useId();
+  if (kind === "signup" || kind === "login") {
+    return (
+      <Link className={className} href={kind === "signup" ? "/signup" : "/login"}>
+        {children}
+      </Link>
+    );
+  }
   return (
     <>
       <button
@@ -26,15 +34,10 @@ export function AvailabilityLink({
         {children}
       </button>
       <dialog ref={dialog} className="notice-dialog" aria-labelledby={titleId}>
-        <h2 id={titleId}>
-          {kind === "information"
-            ? "More details are on the way."
-            : "Your shared plan is on its way."}
-        </h2>
+        <h2 id={titleId}>More details are on the way.</h2>
         <p>
-          {kind === "information"
-            ? "We’re preparing this information for launch. You can explore how PlanBridge works on this page."
-            : "PlanBridge is being built for couples and their families. Account creation and sign-in aren’t available yet. Explore the example wedding workspace to see what’s coming."}
+          We’re preparing this information for launch. You can explore how PlanBridge works on this
+          page.
         </p>
         <form method="dialog">
           <button type="submit" autoFocus>

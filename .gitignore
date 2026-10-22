@@ -13,6 +13,7 @@
 .env*
 !.env.example
 /.vercel/
+/certificates/
 
 # Local logs and operating-system files
 *.log

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { AvailabilityLink, MenuToggle } from "@/components/home/homepage-controls";
 
 export function MobileHomepage() {
@@ -6,7 +7,7 @@ export function MobileHomepage() {
     <div className="homepage-mobile">
       <header className="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(81,45,70,0.05)]">
         <div className="h-16 px-gutter-mobile flex items-center justify-between">
-          <div className="flex items-center gap-space-sm">
+          <div className="homepage-mobile-brand flex items-center gap-space-sm">
             <Image
               alt="PlanBridge Logo"
               className="h-8 w-auto object-contain"
@@ -20,22 +21,16 @@ export function MobileHomepage() {
             </span>
           </div>
           <span className="hidden">{"Marketing Home"}</span>
-          <div className="flex items-center gap-space-xs">
-            <AvailabilityLink
-              className="min-h-[44px] px-space-md py-space-xs flex items-center justify-center rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg transition-colors hover:bg-primary shadow-[0_2px_10px_-2px_rgba(81,45,70,0.12)]"
-              kind="signup"
-            >
-              {"Start planning"}
-            </AvailabilityLink>
+          <div className="homepage-mobile-header-actions">
+            <nav className="homepage-auth-actions" aria-label="Account">
+              <Link className="homepage-auth-link" href="/login">
+                Log in
+              </Link>
+              <Link className="homepage-auth-link homepage-auth-signup" href="/signup">
+                Sign up
+              </Link>
+            </nav>
             <MenuToggle />
-            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs">
-              <span
-                className="material-symbols-outlined text-on-primary text-[18px]"
-                aria-hidden="true"
-              >
-                {"person"}
-              </span>
-            </div>
           </div>
         </div>
       </header>

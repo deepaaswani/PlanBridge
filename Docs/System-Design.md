@@ -1,5 +1,7 @@
 # PlanBridge System Design
 
+> **V1 scope update (22 October 2026):** The PRD defers email verification for v1. Registration creates a password account without a verification token/email; login and account access need no verification step. Verification prerequisites below are deferred, while email matching, membership and role authorization remain required. Password reset, session security and CSRF protections remain in scope. Legacy verification endpoints return 410 and queued verification mail is suppressed; accounts are not marked verified automatically.
+
 Version 1.0 • 21 October 2026 • Architecture baseline for implementation
 
 A wedding-centred SaaS for couples and family members to coordinate tasks, approvals, expenses, guests and wedding memories. This document turns the approved product direction into an implementable architecture for a solo developer building alongside a job.

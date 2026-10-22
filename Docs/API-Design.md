@@ -1,5 +1,7 @@
 # PlanBridge API Design
 
+> **V1 scope update (22 October 2026):** Email verification is deferred per the PRD. `POST /auth/register` returns 202 with the same generic login instruction for new and existing addresses and queues no email. The UI redirects to login. `POST /auth/verify-email` and `/auth/resend-verification` return 410 `EMAIL_VERIFICATION_DISABLED`. Verification prerequisites and `EMAIL_VERIFICATION_REQUIRED` responses below do not apply in v1; email matching and membership/role checks still apply. Password recovery is unchanged. `emailVerified` remains truthful and is not an access gate.
+
 **Version:** 1.0  
 **Date:** 21 October 2026  
 **Status:** Proposed implementation contract; endpoints are not implemented or deployed  

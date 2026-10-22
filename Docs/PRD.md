@@ -1,5 +1,7 @@
 PlanBridge Product Requirements
 
+> **V1 scope update (22 October 2026):** Email verification is deferred by product decision. Sign-up sends no verification email; users log in immediately with their password. Existing accounts need no verification step. Password recovery remains email-based. This supersedes verification requirements below, including verification prerequisites for wedding creation/joining and workspace access. Email matching and all membership/role checks still apply; an address must not be represented as verified without proof.
+
 Version 1.0 | 19 October 2026 | Product owner: Deepa Aswani
 
 Purpose: define the behaviour, scope and acceptance criteria for a wedding planning SaaS built for couples and their families. This document guides design, development and testing of a working pilot followed by a commercial release.

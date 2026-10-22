@@ -1,5 +1,7 @@
 # PlanBridge Database Design
 
+> **V1 scope update (22 October 2026):** Email verification is deferred per the PRD. Registration creates no verification token or email job and does not set `emailVerifiedAt`. Preserve historical verification data without using it as an access gate. Legacy token purpose values remain readable so the dispatcher can cancel old verification batches and purge their encrypted payloads. New account tokens/emails are for password recovery only. Email matching and membership/role checks remain required; verification prerequisites below are deferred for v1.
+
 **Version:** 1.0  
 **Date:** 21 October 2026  
 **Status:** Implementation proposal based on the approved PRD and System Design v1  

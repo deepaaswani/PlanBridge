@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { AvailabilityLink } from "@/components/home/homepage-controls";
 
 export function DesktopHomepage() {
@@ -40,28 +41,14 @@ export function DesktopHomepage() {
               {"FAQs"}
             </a>
           </nav>
-          <div className="flex items-center gap-space-md">
-            <AvailabilityLink
-              className="font-label-lg text-label-lg text-on-surface hover:text-primary transition-colors px-space-md py-space-sm"
-              kind="login"
-            >
-              {"Log in"}
-            </AvailabilityLink>
-            <AvailabilityLink
-              className="inline-flex items-center justify-center font-label-lg text-label-lg bg-primary-container text-on-primary hover:bg-primary transition-colors px-space-lg py-space-sm rounded-full shadow-sm"
-              kind="signup"
-            >
-              {"Start planning"}
-            </AvailabilityLink>
-            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs">
-              <span
-                className="material-symbols-outlined text-on-primary text-[18px]"
-                aria-hidden="true"
-              >
-                {"person"}
-              </span>
-            </div>
-          </div>
+          <nav className="homepage-auth-actions" aria-label="Account">
+            <Link className="homepage-auth-link" href="/login">
+              Log in
+            </Link>
+            <Link className="homepage-auth-link homepage-auth-signup" href="/signup">
+              Sign up
+            </Link>
+          </nav>
         </div>
       </header>
       <main
